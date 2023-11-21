@@ -1,6 +1,7 @@
 import os
 import sys
 import mlflow   
+import mlflow.sklearn
 from mlflow import log_metric,log_param,log_artifact
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -68,8 +69,7 @@ with mlflow.start_run():
         # There are other ways to use the Model Registry, which depends on the use case,
         # please refer to the doc for more information:
         # https://mlflow.org/docs/latest/model-registry.html#api-workflow
-        mlflow.sklearn.log_model(
-            lr, "model", registered_model_name="ElasticnetWineModel")
+        mlflow.sklearn.log_model(lr, "model", registered_model_name="ElasticnetTipsModel")
     else:
         mlflow.sklearn.log_model(lr, "model")
 
